@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/kunseal/weatherpredictor-backend.git'
+                git branch: 'main', url: 'https://github.com/kunseal/weather-predictor.git'
             }
         }
         stage('Build Project') {
