@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: weatherpredictor
+  data:
+    redis:
+      host: redis-17969.c244.us-east-1-2.ec2.redns.redis-cloud.com
+      password: ${REDIS_KEY}
+      ssl:
+        enabled: true # Enable SSL if required
+      timeout: 900 # expiry in sec
+      port: 17969
+server:
+  address: 0.0.0.0
+  port: 8080
+  forward-headers-strategy: framework
+weather:
+  api:
+    key: ${WEATHER_API_KEY}
+    url: https://api.openweathermap.org/data/2.5/forecast
+
+springdoc:
+  server-url: https://api.kundanseal.site
