@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/kunseal/weather-predictor.git'
+                git branch: 'main', url: 'https://github.com/shahwezjob1/weather-predictor.git'
             }
         }
         stage('Build Project') {
@@ -39,7 +39,7 @@ pipeline {
                         fi
 
                         # Build the Docker image
-                        docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:${IMAGE_TAG} .
+                        sudo docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:${IMAGE_TAG} .
                         """
                 }
             }
