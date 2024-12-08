@@ -68,8 +68,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                    docker tag ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:${IMAGE_TAG} public.ecr.aws/y1y3z0j6/${ECR_REPO_NAME}:${IMAGE_TAG}
-                    docker push public.ecr.aws/y1y3z0j6/${ECR_REPO_NAME}:${IMAGE_TAG}
+                    docker tag ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}:${IMAGE_TAG} public.ecr.aws/s1u2f4x4/${ECR_REPO_NAME}:${IMAGE_TAG}
+                    docker push public.ecr.aws/s1u2f4x4/${ECR_REPO_NAME}:${IMAGE_TAG}
                     """
                 }
             }
@@ -97,7 +97,7 @@ pipeline {
                                 '
                                 # Pull the Docker image and run it on port 8081
                                 ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_IP} '
-                                docker pull public.ecr.aws/y1y3z0j6/${ECR_REPO_NAME}:${IMAGE_TAG} && \
+                                docker pull public.ecr.aws/s1u2f4x4/${ECR_REPO_NAME}:${IMAGE_TAG} && \
                                 docker run -d -p 8081:8080 \
                                 -e WEATHER_API_KEY=${WEATHER_API_KEY} \
                                 -e REDIS_KEY=${REDIS_KEY} \
