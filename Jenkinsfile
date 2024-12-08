@@ -57,7 +57,7 @@ pipeline {
                         aws configure set aws_access_key_id $AWS_ACCESS_KEY
                         aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
                         aws configure set region $AWS_REGION
-                        aws ecr-public get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin public.ecr.aws/y1y3z0j6
+                        aws ecr-public get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin public.ecr.aws/s1u2f4x4
                         """
                     }
                 }
@@ -101,7 +101,7 @@ pipeline {
                                 docker run -d -p 8081:8080 \
                                 -e WEATHER_API_KEY=${WEATHER_API_KEY} \
                                 -e REDIS_KEY=${REDIS_KEY} \
-                                public.ecr.aws/y1y3z0j6/${ECR_REPO_NAME}:${IMAGE_TAG}
+                                public.ecr.aws/s1u2f4x4/${ECR_REPO_NAME}:${IMAGE_TAG}
                             '
                             """
                         }
