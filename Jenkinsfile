@@ -7,7 +7,7 @@ pipeline {
         AWS_REGION = 'us-east-1'              
         ECR_REPO_NAME = 'weather/predictor'          
         IMAGE_TAG = "weather-predictor-latest"                   
-        EC2_IP = '172.31.91.28' 
+        EC2_IP = '52.207.254.32' 
         EC2_USER = 'ubuntu'      
         AWS_ACCOUNT_ID = '633705209869'   
     }
