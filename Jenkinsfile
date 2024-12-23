@@ -7,9 +7,10 @@ pipeline {
         AWS_REGION = 'us-east-1'              
         ECR_REPO_NAME = 'weather/predictor'          
         IMAGE_TAG = "weather-predictor-latest"                   
-        EC2_IP = '52.207.254.32' 
+        EC2_IP = '54.145.121.91' 
         EC2_USER = 'ubuntu'      
-        AWS_ACCOUNT_ID = '633705209869'   
+        AWS_ACCOUNT_ID = '633705209869'
+        REDIS_HOST = '35.171.24.133'
     }
 
     stages {
@@ -80,7 +81,7 @@ pipeline {
                 script {
                     withCredentials([
                         string(credentialsId: 'WEATHER_API_KEY', variable: 'WEATHER_API_KEY'),
-                        string(credentialsId: 'REDIS_KEY', variable: 'REDIS_KEY')
+                        string(credentialsId: 'REDIS_KEY_2', variable: 'REDIS_KEY')
                     ]){
                     sshagent(credentials: ['cloud-user']) {
                         sh """
@@ -101,6 +102,7 @@ pipeline {
                                 docker run -d -p 8081:8080 \
                                 -e WEATHER_API_KEY=${WEATHER_API_KEY} \
                                 -e REDIS_KEY=${REDIS_KEY} \
+                                -e REDIS_HOST=${REDIS_HOST} \
                                 public.ecr.aws/s1u2f4x4/${ECR_REPO_NAME}:${IMAGE_TAG}
                             '
                             """
