@@ -10,7 +10,7 @@ pipeline {
         EC2_IP = '54.145.121.91' 
         EC2_USER = 'ubuntu'      
         AWS_ACCOUNT_ID = '633705209869'
-        REDIS_HOST = '35.171.24.133'
+        REDIS_HOST = '172.31.83.231'
     }
 
     stages {
