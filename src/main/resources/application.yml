@@ -3,7 +3,7 @@ spring:
     name: weatherpredictor
   data:
     redis:
-      host: redis-17969.c244.us-east-1-2.ec2.redns.redis-cloud.com
+      host: ${REDIS_HOST}
       password: ${REDIS_KEY}
       ssl:
         enabled: true # Enable SSL if required
