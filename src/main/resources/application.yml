@@ -8,7 +8,7 @@ spring:
       ssl:
         enabled: true # Enable SSL if required
       timeout: 900 # expiry in sec
-      port: 17969
+      port: 6379
 server:
   address: 0.0.0.0
   port: 8080
